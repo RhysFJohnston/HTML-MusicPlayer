@@ -1,5 +1,40 @@
+body{
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+#music-player{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
 #song-image{
     height: 300px;
     width: 300px;
     border-radius: 10px;
+}
+
+#song-name{
+    margin-top: 20px;
+    font-size: 2em;
+}
+
+#music-buttons{
+    display: flex;
+    align-items: center;
+    margin-top: 20px;
+}
+
+#music-buttons i{
+    padding: 10px;
+}
+
+#song-slider{
+    accent-color: purple;
+    width: 300px;
+    height: 5px;
+    border: 1px solid purple;
+    border-radius: 10px;
+    margin-top: 20px;
 }
