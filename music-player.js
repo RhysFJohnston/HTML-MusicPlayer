@@ -36,3 +36,44 @@ const songs  = [
 ];
 
 const audio = document.createElement("audio");
+let currentSongIndex = 0;
+updateSong();
+
+prevSongButton.addEventListener("click", function() {
+    if(currentSongIndex == 0){
+        return;
+    }
+    currentSongIndex --;
+    updateSong();
+    audio.play();
+})
+
+nextSongButton.addEventListener("click", function() {
+    if(currentSongIndex == songs.length -1){
+        return;
+    }
+    currentSongIndex ++;
+    updateSong();
+    audio.play();
+})
+
+playpauseButton.addEventListener("click", function(){
+    if(!audio.paused){
+        audio.pause();
+    }
+    else{
+        audio.play();
+    }
+});
+
+function updateSong() {
+    const song = songs[currentSongIndex]
+    songImage.src = song.image;
+    songName.innerText = song.name;
+    songArtist.innerText = song.artist;
+
+    audio.src = song.audio;
+
+    songSlider.value = 0;
+    songSlider.max = audio.duration;
+}
