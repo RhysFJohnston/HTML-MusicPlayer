@@ -33,12 +33,6 @@ const songs  = [
         artist: "Earl Sweatshirt",
         audio: "./pigions ft wolf haley.mp3",
     },
+];
 
-
-
-
-
-
-
-
-]
+const audio = document.createElement("audio");
