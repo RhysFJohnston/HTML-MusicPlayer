@@ -46,7 +46,7 @@ prevSongButton.addEventListener("click", function() {
     currentSongIndex --;
     updateSong();
     audio.play();
-})
+});
 
 nextSongButton.addEventListener("click", function() {
     if(currentSongIndex == songs.length -1){
@@ -55,7 +55,7 @@ nextSongButton.addEventListener("click", function() {
     currentSongIndex ++;
     updateSong();
     audio.play();
-})
+});
 
 playpauseButton.addEventListener("click", function(){
     if(!audio.paused){
@@ -66,6 +66,19 @@ playpauseButton.addEventListener("click", function(){
     }
 });
 
+audio.addEventListener("ended", function(){
+    if(currentSongIndex < songs.length - 1){
+        currentSongIndex++;
+        updateSong();
+        audio.play();
+    }
+});
+    
+
+songSlider.addEventListener("change", function(){
+    audio.currentTime = songSlider.value;
+});
+
 function updateSong() {
     const song = songs[currentSongIndex]
     songImage.src = song.image;
@@ -73,7 +86,14 @@ function updateSong() {
     songArtist.innerText = song.artist;
 
     audio.src = song.audio;
-
-    songSlider.value = 0;
-    songSlider.max = audio.duration;
+    audio.onloadedmetadata = function(){
+        songSlider.value = 0;
+        songSlider.max = audio.duration;
+    }
 }
+
+function moveSlider() {
+    songSlider.value = audio.currentTime;
+};
+
+setInterval(moveSlider, 1000);
