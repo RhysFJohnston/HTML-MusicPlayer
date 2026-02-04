@@ -57,7 +57,7 @@ nextSongButton.addEventListener("click", function() {
     audio.play();
 });
 
-playpauseButton.addEventListener("click", function(){
+playpauseButton.addEventListener("click",function(){
     if(!audio.paused){
         audio.pause();
     }
