@@ -64,6 +64,8 @@ playpauseButton.addEventListener("click", function(){
     else{
         audio.play();
     }
+
+    updatePlayPauseIcon()
 });
 
 audio.addEventListener("ended", function(){
@@ -73,6 +75,9 @@ audio.addEventListener("ended", function(){
         audio.play();
     }
 });
+
+audio.addEventListener("play", updatePlayPauseIcon)
+audio.addEventListener("pause", updatePlayPauseIcon)
     
 
 songSlider.addEventListener("change", function(){
@@ -97,3 +102,13 @@ function moveSlider() {
 };
 
 setInterval(moveSlider, 1000);
+
+function updatePlayPauseIcon() {
+    if (audio.paused) {
+        playpauseButton.classList.remove("fa-circle-pause");
+        playpauseButton.classList.add("fa-circle-play");
+    } else {
+        playpauseButton.classList.remove("fa-circle-play");
+        playpauseButton.classList.add("fa-circle-pause");
+    }
+}
