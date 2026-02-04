@@ -1,3 +1,13 @@
+const songImage = document.getElementById("song-image");
+const songName = document.getElementById("song-name");
+const songArtist = document.getElementById("song-artist");
+
+const songSlider = document.getElementById("song-slider");
+
+const playpauseButton = document.getElementById("playpause-song");
+const prevSongButton = document.getElementById("prev-song");
+const nextSongButton = document.getElementById("next-song");
+
 const songs  = [
     {
         image: "/images/earl album cover.jpg",
